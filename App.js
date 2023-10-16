@@ -1,19 +1,31 @@
-/*
-// Nested Structure
-// <div id="parent">
-//     <div id="child">
-//         <h1> Nested Struction </h1>
-//     </div>
-// </div>
-// React.createElelemnt(object)=> HTML Browser Understands(ReacctDOM converts the object in the HTML while rendering it on the browser)
+/** 
+ *  Nested Structure
+ * <div id="parent">
+ *  <div id="child">
+ *      <h1> First Element </h1>
+ *      <h2> Sibling </h2>
+ *  </div>
+ *  <div id="child2">
+ *      <h1> Second Element</h1>
+ *      <h2> Child Sibling </h2>
+ *  </div>
+ * </div>
+ * ReactElelemt(Object)=> HTML (Browser Understands)
+ * 
 */
 
+const parent=React.createElement("div",{id:"parent"},[
+    React.createElement("div",{id:"child"},[
+        React.createElement("h1",{},"First Element"),
+        React.createElement("h2",{},"Sibling")
+    ]),
+    React.createElement("div",{id:"child2"},[
+        React.createElement("h1",{},"Second Element"),
+        React.createElement("h2",{},"Child Sibling")
+    ])
+]);
 
-const heading = React.createElement("div",
-                                {id:"parent"},
-                                React.createElement("div",{id:"child"},
-                                React.createElement("h1",{},"Hello from inside"))
-                                );
-console.log(heading);
-const root=ReactDOM.createRoot(document.getElementById("root"));
-root.render(heading);
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(parent);
+
+
