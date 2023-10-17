@@ -8,7 +8,7 @@ node_modules
 *.gz
 *.sh
 
-dist/
+/dist
 .parcel-cache/
 
 # Log files
