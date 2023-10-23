@@ -1173,15 +1173,9 @@ import ReactDOM from "react-dom/client";
             <div className="body">
                 <div className="search">Search</div>
                 <div className="res-container">
-                    <ResturantCard resData={resList[0]}/>
-                    <ResturantCard resData={resList[2]}/>
-                    <ResturantCard resData={resList[3]}/>
-                    <ResturantCard resData={resList[4]}/>
-                    <ResturantCard resData={resList[5]}/>
-                    <ResturantCard resData={resList[6]}/>
-                    <ResturantCard resData={resList[7]}/>
-                    <ResturantCard resData={resList[8]}/>
-
+                  {
+                    resList.map(resturant => <ResturantCard key={resturant.info.id} resData={resturant} />)
+                  }
                 </div>
             </div>
         )
