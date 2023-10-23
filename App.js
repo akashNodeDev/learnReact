@@ -36,14 +36,15 @@ import ReactDOM from "react-dom/client";
         )
     }
 
-    const ResturantCard = () => {
+    const ResturantCard = (props) => {
+        const {name,cuisines,star,duration} = props
         return (
             <div className="res-card" style={{backgroundColor:"#f0f0f0"}}>
                 <img className="res-logo" alt="res-logo" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/mcunprqjxgx8o38fcshe"/>
-                <h3>Meghna Foods</h3>
-                <h4>Burger,North Indian,Asian</h4>
-                <h4>4.3 stars</h4>
-                <h4>38 Minutes</h4>
+                <h3>{name}</h3>
+                <h4>{cuisines}</h4>
+                <h4>{star} stars</h4>
+                <h4>{duration} Minutes</h4>
             </div>
         )
     }
@@ -53,16 +54,8 @@ import ReactDOM from "react-dom/client";
             <div className="body">
                 <div className="search">Search</div>
                 <div className="res-container">
-                    <ResturantCard/>
-                    <ResturantCard/>
-                    <ResturantCard/>
-                    <ResturantCard/>
-                    <ResturantCard/>
-                    <ResturantCard/>
-                    <ResturantCard/>
-                    <ResturantCard/>
-                    <ResturantCard/>
-                    <ResturantCard/>
+                    <ResturantCard name="Meghna Foods" cuisines="Bada,North Indian,Asian" star="4.3" duration="38"/>
+                    <ResturantCard name="Raghvendra Foods" cuisines="Idli,South Indian,Asian" star="4.0" duration="15"/>
                 </div>
             </div>
         )
