@@ -16,21 +16,13 @@ const Body = () => {
     let data = await fetch(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.4490568&lng=78.3927348&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
-    //console.log("Data=",data);
     const jsonData = await data.json();
-    //console.log("JSON DATA=",jsonData)
     // optional chaining
     setListOfRestrants(jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
   };
 
- // console.log("Data=",listOfResturants.length)
-
   // conditional rendering
-  if(listOfResturants.length === 0) {
-    return <Shimmer/>
-  }
-
-  return (
+  return (listOfResturants.length === 0) ? <Shimmer/> :(
     <div className="body">
       <div className="filter">
         <button
