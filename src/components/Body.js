@@ -1,5 +1,6 @@
 import ResturantCard from "./ResturantCard";
 //import resList from "../utils/mockData";
+import Shimmer from "./Shimmer"
 import { useState, useEffect } from "react";
 
 const Body = () => {
@@ -18,8 +19,16 @@ const Body = () => {
     //console.log("Data=",data);
     const jsonData = await data.json();
     //console.log("JSON DATA=",jsonData)
-    setListOfRestrants(jsonData.data.cards[5].card.card.gridElements.infoWithStyle.restaurants)
+    // optional chaining
+    setListOfRestrants(jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
   };
+
+ // console.log("Data=",listOfResturants.length)
+
+  // conditional rendering
+  if(listOfResturants.length === 0) {
+    return <Shimmer/>
+  }
 
   return (
     <div className="body">
